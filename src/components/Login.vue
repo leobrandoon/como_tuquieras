@@ -18,7 +18,6 @@
         <div class="form-group">
           <label>Password</label>
           <input
-            id="alertapass"
             type="password"
             class="form-control"
             required="required"
@@ -70,18 +69,24 @@ export default {
   },
   methods: {
     login() {
-      console.log("llegue");
+      this.$store.dispatch("login", {
+        email: this.login_email,
+        password: this.login_password,
+      });
     },
     register() {
-      const alertapass = document.getElementByid("alertapass");
       if (this.register_password != this.register_password_confirm) {
-        alertapass.setCustomValidity("se te mosquio la pass");
+        alert("se te moskeo la pass");
         return;
       }
-      // aca hacemos el registro
+      // aca hacemos el registro que luego enviamos a main para guardar en Data Firebase
+      this.$store.dispatch("register", {
+        email: this.register_email,
+        password: this.register_password,
+      });
     },
   },
 };
 </script>
-<style scoped>
+<style >
 </style>

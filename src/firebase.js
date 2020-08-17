@@ -10,7 +10,7 @@ var firebaseConfig = {
     appId: process.env.VUE_APP_APPID,
 };
 const firebaseApp = firebase.initializeApp(firebaseConfig);    // capture initialized app in a variable
-export const db = firebaseApp.firestore();  
+export const db = firebaseApp.firestore();
 
-//esto no se te puede olvidar weon!
+// esto no se te puede olvidar weon!
 // export const auth = firebaseApp.auth();
