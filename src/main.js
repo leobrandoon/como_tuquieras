@@ -35,16 +35,22 @@ const store = new Vuex.Store({
         .then(function (response) {
           // si todo ocurre o
           console.log(response)
-          context.commit('set_user', { email: datos.email })
+          // Capturando el nombre del usuario
+          firebase.auth().currentUser.updateProfile({
+            displayName: datos.name
+          })
+        })
+        // si responde al registro entonces guardamos los datos en data
+        .then((response) => {
+          console.log(response)
+          context.commit('set_user', { email: datos.email, name: datos.name })
           context.commit('set_error', null)
           //aca redirigimos luego de validar los datos deregistro
           router.push('/')
-
         })
         .catch(function (error) {
           context.commit('set_user', null)
           context.commit('set_error', error.message)
-
         })
     },
 

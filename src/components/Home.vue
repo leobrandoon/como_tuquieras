@@ -1,8 +1,14 @@
 <template>
-  <div>
+  <div class="ror">
+    <div class="col-">
+    <h3>Toma de Hora Medica</h3>
+
+    </div>
 
       
-    <h3>Home</h3>
+
+    <input type="date">
+    <h1>hola a todos los que llegaron aca lo hicieron con exito</h1>
   </div>
 </template>
 

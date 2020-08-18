@@ -6,7 +6,7 @@
       <b>{{ error }}</b>
     </div>
     <div class="alert alert-success" role="alert" v-if="user !=null">
-      <b>Bienvenido a La Casa de las Moscas {{ user.email}}</b>
+      <b>Bienvenido a La Casa de las Moscas {{ user.name}}</b>
     </div>
 
     <router-view />
@@ -32,8 +32,9 @@ export default {
   methods: {
     logout() {
       firebase.auth().signOut();
+      this.$store.commit("set_user", null);
+      this.$store.commit("set_error", null);
       router.push("/login");
-      
     },
   },
 };
