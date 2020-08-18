@@ -76,6 +76,7 @@ export default {
       this.$store.dispatch("login", {
         email: this.login_email,
         password: this.login_password,
+        
       });
     },
     register() {

@@ -46,7 +46,7 @@ const store = new Vuex.Store({
           context.commit('set_user', { email: datos.email, name: datos.name })
           context.commit('set_error', null)
           //aca redirigimos luego de validar los datos deregistro
-          router.push('/')
+          router.push('/home')
         })
         .catch(function (error) {
           context.commit('set_user', null)
@@ -57,13 +57,20 @@ const store = new Vuex.Store({
     login(context, datos) {
       firebase.auth().signInWithEmailAndPassword(datos.email, datos.password)
         .then(function (response) {
+          console.log(response.displayName)
+
+
           // si todo ocurre o
-          console.log(response)
-          context.commit('set_user', { email: datos.email })
+          context.commit('set_user', { email: datos.email, name: response.displayName })
           context.commit('set_error', null)
           //aca redirigimos luego de validar los datos deregistro
           router.push('/')
+
+
         })
+
+
+
         .catch(function (error) {
           context.commit('set_user', null)
           context.commit('set_error', error.message)

@@ -1,5 +1,6 @@
 <template>
   <div id="app" class="container">
+    
     <button type="button" class="btn btn-primary" v-if="user !=null" @click="logout">Exit</button>
 
     <div class="alert alert-danger" role="alert" v-if="error !=null">
