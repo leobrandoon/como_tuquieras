@@ -1,10 +1,11 @@
 <template>
+
   <div class="jumbotron card bg-dark text-white" id="avatar">
-    <div class="col">
+    <div class="col-sm">
       <img src="@/assets/logo.png" alt width="200px" class="rounded-circle" id="avatar" />
-      <h1 class="display-4">Registro de pasientes</h1>
+      <h1 class="display-4">Registro de pacientes</h1>
     </div>
-    <h2 class="lead"> Si tienes una falencia medica consigue tu hora aca</h2>
+    <h2 class="lead">consigue tu hora aca</h2>
     <hr class="my-4" />
     <div class="row">
       <!-- aca va el formulario para resistro -->
@@ -42,7 +43,7 @@
       <!-- aca va el formulario para login  -->
       <form class="col-sm" @submit.prevent="login">
         <div class="form-group">
-          <p> Revisas tus horas aca</p>
+          <p>Revisas tus horas aca</p>
           <label>Email address</label>
           <input type="email" class="form-control" v-model="login_email" />
         </div>
@@ -54,6 +55,7 @@
       </form>
     </div>
   </div>
+  
 </template>
 
 <script>
@@ -76,7 +78,6 @@ export default {
       this.$store.dispatch("login", {
         email: this.login_email,
         password: this.login_password,
-        
       });
     },
     register() {
@@ -94,5 +95,9 @@ export default {
   },
 };
 </script>
-<style >
+<style scoped>
+
+
+
+
 </style>

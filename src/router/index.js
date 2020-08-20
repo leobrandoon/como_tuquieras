@@ -24,9 +24,12 @@ const router = new VueRouter({
         {
             path: '/horas',
             component: Horas,
-        },
+            meta: {
+                rutaprotegida: true
+            }
+        }
     ]
-})
+});
 
 router.beforeEach((to, from, next) => {
     console.log(to, from)
@@ -37,5 +40,7 @@ router.beforeEach((to, from, next) => {
     } else {
         next()
     }
+
+
 })
 export default router;

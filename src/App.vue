@@ -1,17 +1,39 @@
 <template>
   <div id="app" class="container">
-    
-    <button type="button" class="btn btn-primary" v-if="user !=null" @click="logout">Exit</button>
+    <!-- barra de navegacion general. -->
+
+    <nav class="navbar navbar-dark bg-dark col-sm">
+      <a class="navbar-brand" href="#">Horas Medicas</a>
+
+      <!-- condiciones de router  -->
+      <div class="form-inline">
+        <router-link :to="{path:'/login'}">
+          <button type="button" class="btn btn-primary" v-if="user !=null" @click="logout">Exit</button>
+          <button type="button" class="btn btn-primary" @click="logout">Login</button>
+        </router-link>
+      </div>
+    </nav>
+
+    <!--panel del registrado-->
+    <div class="alert alert-success" role="alert" v-if="user !=null">
+      <b>Bienvenido a tus horas medicas {{ user.name}}</b>
+    </div>
 
     <div class="alert alert-danger" role="alert" v-if="error !=null">
       <b>{{ error }}</b>
     </div>
-    <div class="alert alert-success" role="alert" v-if="user !=null">
-      <b>Bienvenido a La Casa de las Moscas {{ user.name}}</b>
-    </div>
-
     <router-view />
+
+    <!-- este boton no funciona  -->
+
+    <div>
+      <router-lin :to="{path:'/'}">
+        <button type="button" class="btn btn-primary" v-if="user !=null">Agenda Hora</button>
+      </router-lin>
+    </div>
   </div>
+
+  <!-- mensaje de login -->
 </template>
 
 <script>

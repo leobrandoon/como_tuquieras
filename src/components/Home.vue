@@ -1,53 +1,31 @@
 <template>
   <div class="container">
     <!-- barra de navegacion -->
-    <div class="">
-      <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <a class="navbar-brand" href="#">Horas Medicas</a>
-        <button
-          class="navbar-toggler"
-          type="button"
-          data-toggle="collapse"
-          data-target="#navbarSupportedContent"
-          aria-controls="navbarSupportedContent"
-          aria-expanded="false"
-          aria-label="Toggle navigation"
-        >
-          <span class="navbar-toggler-icon"></span>
-        </button>
 
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul class="navbar-nav mr-auto">
-            <li class="nav-item active">
-              <a class="nav-link" href="#">Home</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">Login</a>
-            </li>
-          </ul>
-        </div>
-        <router-link :to="{path:'/login'}">
-          <button type="button" class="btn btn-primary">Back</button>
-        </router-link>
-      </nav>
+    <div>
+      <p></p>
     </div>
-<div>
-  <p>
-
-  </p>
-</div>
 
     <div class="row">
       <table class="table col-sm">
         <thead>
           <tr>
-            <th scope="col">Nombre</th>
+            <th scope="col">Name User</th>
+
+            <th scope="col">Paciente</th>
             <th scope="col">Fecha</th>
-            <th scope="col">Hpra</th>
-            <th scope="col">Comentario</th>
+            <th scope="col">Hora</th>
+            <th scope="col">edit</th>
           </tr>
         </thead>
-        <tbody></tbody>
+        <tbody v-if="user !=null">
+          <tr v-for="citas_medicas in citas_medicas" :key="citas_medicas.id">
+            <td>{{citas_medicas.id}}</td>
+            <td>{{citas_medicas.paciente}}</td>
+            <td>{{citas_medicas.fecha}}</td>
+            <td>{{citas_medicas.hora}}</td>
+          </tr>
+        </tbody>
       </table>
     </div>
   </div>
@@ -62,6 +40,15 @@ export default {
     return {
       citas_medicas: db.collection("citas_medicas"),
     };
+  },
+  computed: {
+    error() {
+      //aca nos traemos el error desde el almacen
+      return this.$store.state.error;
+    },
+    user() {
+      return this.$store.state.user;
+    },
   },
 };
 </script>
