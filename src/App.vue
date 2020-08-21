@@ -27,9 +27,7 @@
     <!-- este boton no funciona  -->
 
     <div>
-      <router-lin :to="{path:'/'}">
-        <button type="button" class="btn btn-primary" v-if="user !=null">Agenda Hora</button>
-      </router-lin>
+      <router-link :to="{path:'/horas'}" class="btn btn-primary" v-if="user !=null">Agenda Hora</router-link>
     </div>
   </div>
 

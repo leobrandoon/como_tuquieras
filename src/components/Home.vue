@@ -10,20 +10,23 @@
       <table class="table col-sm">
         <thead>
           <tr>
-            <th scope="col">Name User</th>
+            <!-- <th scope="col">Name User</th> -->
 
             <th scope="col">Paciente</th>
             <th scope="col">Fecha</th>
             <th scope="col">Hora</th>
+            <th scope="col">sintomas</th>
             <th scope="col">edit</th>
           </tr>
         </thead>
         <tbody v-if="user !=null">
-          <tr v-for="citas_medicas in citas_medicas" :key="citas_medicas.id">
-            <td>{{citas_medicas.id}}</td>
-            <td>{{citas_medicas.paciente}}</td>
-            <td>{{citas_medicas.fecha}}</td>
-            <td>{{citas_medicas.hora}}</td>
+          <tr v-for="cita_medica in citas_medicas" :key="cita_medica.id">
+            <td>{{cita_medica.paciente}}</td>
+            <!-- <td>{{citas_medicas.paciente}}</td> -->
+            <td>{{cita_medica.fecha}}</td>
+            <td>{{cita_medica.hora}}</td>
+            <td>{{cita_medica.sintomas}}</td>
+            <td>edit</td>
           </tr>
         </tbody>
       </table>

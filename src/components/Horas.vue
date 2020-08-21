@@ -7,7 +7,7 @@
 
         <!-- aca va el nombre del pacientes -->
         <div class="row">
-          <div class="form-group col-sm">
+          <!-- <div class="form-group col-sm">
             <label>Nombre y apellido</label>
             <input
               type="name"
@@ -20,7 +20,7 @@
               id="emailHelp"
               class="form-text text-muted"
             >ingrsa el nombre y apellido del paciente.</small>
-          </div>
+          </div>-->
           <div class="col-sm">
             <p>Selecciona una fecha y hora</p>
             <div class="col-sm">
@@ -46,10 +46,7 @@
             v-model="registro_sintomas"
           ></textarea>
         </div>
-
-        <router-link :to="{path:'/'}">
-          <button type="submit" class="btn btn-primary">Agendar</button>
-        </router-link>
+        <input type="submit" class="btn btn-primary" />
       </div>
     </div>
   </form>
@@ -57,6 +54,10 @@
 
 <script>
 import { db } from "@/firebase";
+import firebase from "firebase/app";
+import "firebase/auth";
+import router from "@/router";
+
 export default {
   name: "Horas",
   data() {
@@ -69,22 +70,26 @@ export default {
   },
   methods: {
     registro_medico() {
-      console.log(this.$firestore);
+      const user = firebase.auth().currentUser;
       //guardar en la nube
-      this.$firestore.citas_medicas.add({
-        paciente: this.paciente,
-        hora: this.registro_hora,
-        fecha: this.registro_fecha,
-        sintomas: this.registro_sintomas,
-      });
+      this.$firestore.citas_medicas
+        .add({
+          paciente: user.displayName,
+          hora: this.registro_hora,
+          fecha: this.registro_fecha,
+          sintomas: this.registro_sintomas,
+        })
+        .then(() => {
+          // cuando todo está bien
+          // aca limpiamos el formulario
+          this.paciente = "";
+          this.registro_hora = "";
+          this.registro_fecha = "";
+          this.registro_sintomas = "";
 
-      // aca limpiamos el formulario
-      this.paciente = "";
-      this.registro_hora = "";
-      this.registro_fecha = "";
-      this.registro_sintomas = "";
-
-      // rediri a la tabla
+          // rediri a la tabla
+          router.push("/");
+        });
     },
   },
 
