@@ -1,17 +1,16 @@
 <template>
-
-  <div class="jumbotron card bg-dark text-white" id="avatar">
+  <div class="jumbotron card bg-light" id="avatar">
     <div class="col-sm">
-      <img src="@/assets/logo.png" alt width="200px" class="rounded-circle" id="avatar" />
-      <h1 class="display-4">Registro de pacientes</h1>
+      <h1 class="display-4">Preguntas de Ruclutamiento TI</h1>
+      <img src="@/assets/logo.jpg" alt width="100px" class="rounded-circle" id="avatar" />
     </div>
-    <h2 class="lead">consigue tu hora aca</h2>
+    <h2 class="lead">Aca podras conocer sobres preguntas de ruclamiento TI y aportar con tus experiencias</h2>
     <hr class="my-4" />
     <div class="row">
       <!-- aca va el formulario para resistro -->
       <form class="col-sm" @submit.prevent="register">
         <div class="form-group">
-          <p>La red de salud mas grande del pais</p>
+          <p>Unete a esta trivia y manten al dia tu conocimiento</p>
           <label>Register Name</label>
           <input type="text" class="form-control" required="required" v-model="register_name" />
         </div>
@@ -43,7 +42,7 @@
       <!-- aca va el formulario para login  -->
       <form class="col-sm" @submit.prevent="login">
         <div class="form-group">
-          <p>Revisas tus horas aca</p>
+          <p>Por aca si ya Sabes</p>
           <label>Email address</label>
           <input type="email" class="form-control" v-model="login_email" />
         </div>
@@ -55,18 +54,17 @@
       </form>
     </div>
   </div>
-  
 </template>
 
 <script>
-// import { db } from "@/firebase";
 export default {
   name: "Login",
   data() {
     return {
+      //aca capturamos al login
       login_email: "",
       login_password: "",
-
+      //  aca capturo el nuevo registro
       register_email: "",
       register_password: "",
       register_password_confirm: "",
@@ -82,7 +80,7 @@ export default {
     },
     register() {
       if (this.register_password != this.register_password_confirm) {
-        alert("se te moskeo la pass");
+        alert("La claves deben ser iguales");
         return;
       }
       // aca hacemos el registro que luego enviamos a main para guardar en Data Firebase
@@ -96,8 +94,4 @@ export default {
 };
 </script>
 <style scoped>
-
-
-
-
 </style>

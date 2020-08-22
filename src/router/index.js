@@ -3,7 +3,8 @@ import VueRouter from 'vue-router';
 import firebase from 'firebase/app';
 import Login from '@/components/Login.vue';  // asumiendo que hicimos este componente
 import Home from '@/components/Home.vue';  // asumiendo que hicimos este componente
-import Horas from '@/components/Horas.vue';  // asumiendo que hicimos este componente
+import Preguntas from '@/components/Preguntas.vue';  // asumiendo que hicimos este componente
+import Play from '@/components/Play.vue';  // asumiendo que hicimos este componente
 
 
 Vue.use(VueRouter);    // instalamos explícitamente el router
@@ -22,8 +23,15 @@ const router = new VueRouter({
             component: Login,
         },
         {
-            path: '/horas',
-            component: Horas,
+            path: '/preguntas',
+            component: Preguntas,
+            meta: {
+                rutaprotegida: true
+            }
+        },
+        {
+            path: '/play',
+            component: Play,
             meta: {
                 rutaprotegida: true
             }

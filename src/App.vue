@@ -1,37 +1,44 @@
 <template>
   <div id="app" class="container">
     <!-- barra de navegacion general. -->
-
     <nav class="navbar navbar-dark bg-dark col-sm">
-      <a class="navbar-brand" href="#">Horas Medicas</a>
-
-      <!-- condiciones de router  -->
-      <div class="form-inline">
-        <router-link :to="{path:'/login'}">
-          <button type="button" class="btn btn-primary" v-if="user !=null" @click="logout">Exit</button>
-          <button type="button" class="btn btn-primary" @click="logout">Login</button>
-        </router-link>
-      </div>
+      <a class="navbar-brand" href="#">Atajo_Dijo</a>
     </nav>
+    <!-- condiciones de router  -->
+    <ul class="nav justify-content-center">
+      <router-link :to="{path:'/'}">
+        <li class="nav-item">
+          <a class="nav-link" @click="logout">Home</a>
+        </li>
+      </router-link>
+      <router-link :to="{path:'/login'}">
+        <li class="nav-item">
+          <a class="nav-link" @click="logout">Login</a>
+        </li>
+      </router-link>
+      <router-link :to="{path:'/preguntas'}" v-if="user !=null">
+        <li class="nav-item">
+          <a class="nav-link">Add Preguntas</a>
+        </li>
+      </router-link>
+      <router-link :to="{path:'/play'}" v-if="user !=null">
+        <li class="nav-item">
+          <a class="nav-link">Triva go!</a>
+        </li>
+      </router-link>
+    </ul>
 
     <!--panel del registrado-->
     <div class="alert alert-success" role="alert" v-if="user !=null">
-      <b>Bienvenido a tus horas medicas {{ user.name}}</b>
+      <b>Bienvenido a tus trivia {{ user.name}}</b>
     </div>
+    <!-- bienvenida del usurario -->
 
     <div class="alert alert-danger" role="alert" v-if="error !=null">
       <b>{{ error }}</b>
     </div>
     <router-view />
-
-    <!-- este boton no funciona  -->
-
-    <div>
-      <router-link :to="{path:'/horas'}" class="btn btn-primary" v-if="user !=null">Agenda Hora</router-link>
-    </div>
   </div>
-
-  <!-- mensaje de login -->
 </template>
 
 <script>

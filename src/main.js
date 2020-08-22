@@ -35,7 +35,7 @@ const store = new Vuex.Store({
         .then(function (response) {
           // si todo ocurre o
           console.log(response)
-          // Capturando el nombre del usuario
+          // Capturando el nombre del usuario 
           firebase.auth().currentUser.updateProfile({
             displayName: datos.name
           })
