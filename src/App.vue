@@ -13,7 +13,12 @@
       </router-link>
       <router-link :to="{path:'/login'}">
         <li class="nav-item">
-          <a class="nav-link" @click="logout">Login</a>
+           <a class="nav-link">Login</a>
+        </li>
+      </router-link>
+      <router-link :to="{path:'/login'}" v-if="user !=null">
+        <li class="nav-item">
+          <a class="nav-link" @click="logout">log out</a>
         </li>
       </router-link>
       <router-link :to="{path:'/preguntas'}" v-if="user !=null">
