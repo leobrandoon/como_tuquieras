@@ -47,7 +47,7 @@
             </div>
           </div>
         </div>
-        <button type="submit" class="btn btn-primary">play</button>
+        <button type="submit" class="btn btn-primary">play</button>D
       </form>
     </div>
   </div>
@@ -84,7 +84,7 @@ export default {
       if (this.respPregunta.answers[2]) {
         answer_correctas++;
       }
-      this.porcent = Math.round((answer_correctas / 3) * 100, -2);
+      this.porcent = Math.round((answer_correctas / 3) * 100);
 
       //guardar en la nube
       this.$firestore.respuestas_player.add({
@@ -92,6 +92,9 @@ export default {
         respuestas_correctas: answer_correctas,
         porcentaje: this.porcent,
       });
+
+
+
 
       // redirigir a la tabla
       router.push("/");

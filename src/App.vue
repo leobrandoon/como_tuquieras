@@ -2,7 +2,7 @@
   <div id="app" class="container">
     <!-- barra de navegacion general. -->
     <nav class="navbar navbar-dark bg-dark col-sm">
-      <a class="navbar-brand" href="#">Atajo_Dijo</a>
+      <a class="navbar-brand" href="#">Atajo</a>
     </nav>
     <!-- condiciones de router  -->
     <ul class="nav justify-content-center">

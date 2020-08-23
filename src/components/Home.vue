@@ -1,6 +1,21 @@
 <template>
   <div class="container">
     <div class="jumbotron">
+      <div
+        class="LI-profile-badge"
+        data-version="v1"
+        data-size="medium"
+        data-locale="es_ES"
+        data-type="vertical"
+        data-theme="dark"
+        data-vanity="leonargo-gonzalez"
+      >
+        <a
+          class="LI-simple-link"
+          href="https://cl.linkedin.com/in/leonargo-gonzalez?trk=profile-badge"
+        >Leonardo Gonzalez Jara</a>
+      </div>
+
       <img src="@/assets/logo.jpg" alt width="100px" class="rounded-circle" id="avatar" />
       <h1 class="display-4">Bienvenido a este Atajo</h1>
 
